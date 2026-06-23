@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "154278314040",
+    "project_id": "nxtstep-app",
+    "storage_bucket": "nxtstep-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154278314040:android:04ffab8a1584178e2aa6cd",
+        "android_client_info": {
+          "package_name": "com.example.nxtstep"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB55ukl4-XIgJXbRLy2x1k2UIlMTsLCxIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
