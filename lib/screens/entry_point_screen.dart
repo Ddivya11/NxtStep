@@ -36,7 +36,7 @@ class EntryPointScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0D0B1E),
+      backgroundColor: const Color(0xFF0D0B1A),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24),
@@ -47,7 +47,7 @@ class EntryPointScreen extends StatelessWidget {
               const Text(
                 'Where are you right now?',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: const Color(0xFFF5EFE6),
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                 ),
@@ -100,19 +100,19 @@ class EntryPointScreen extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: const Color(0xFF1A1A1A),
+          color: const Color(0xFF1A1628),
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: const Color(0xFF00B4D8).withOpacity(0.3)),
+          border: Border.all(color: const Color(0xFFC8A8E9).withOpacity(0.3)),
         ),
         child: Row(
           children: [
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: const Color(0xFF00B4D8).withOpacity(0.1),
+                color: const Color(0xFFC8A8E9).withOpacity(0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Icon(icon, color: const Color(0xFF00B4D8), size: 28),
+              child: Icon(icon, color: const Color(0xFFC8A8E9), size: 28),
             ),
             const SizedBox(width: 16),
             Expanded(
@@ -121,7 +121,7 @@ class EntryPointScreen extends StatelessWidget {
                 children: [
                   Text(title,
                       style: const TextStyle(
-                          color: Colors.white,
+                          color: const Color(0xFFF5EFE6),
                           fontSize: 16,
                           fontWeight: FontWeight.bold)),
                   const SizedBox(height: 4),

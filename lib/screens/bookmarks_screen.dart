@@ -47,21 +47,21 @@ class _BookmarksScreenState extends State<BookmarksScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0D0B1E),
+      backgroundColor: const Color(0xFF080B1A),
       appBar: AppBar(
-        backgroundColor: const Color(0XFF0D0B1E),
+        backgroundColor: const Color(0XFF080B1A),
         title: Text(
           'Bookmarks',
           style: GoogleFonts.poppins(
-            color: Colors.white,
+            color: const Color(0xFFF5EFE6),
             fontWeight: FontWeight.bold,
           ),
         ),
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: const Color(0xFFF5EFE6)),
       ),
       body: _isLoading
           ? const Center(
-              child: CircularProgressIndicator(color: Color(0xFF00B4D8)))
+              child: CircularProgressIndicator(color: Color(0xFFC8A8E9)))
           : _bookmarkedCareers.isEmpty
               ? Center(
                   child: Column(
@@ -104,10 +104,10 @@ class _BookmarksScreenState extends State<BookmarksScreen> {
                         margin: const EdgeInsets.only(bottom: 16),
                         padding: const EdgeInsets.all(20),
                         decoration: BoxDecoration(
-                          color: const Color(0xFF1A1A1A),
+                          color: const Color(0xFF1A1628),
                           borderRadius: BorderRadius.circular(16),
                           border: Border.all(
-                              color: const Color(0xFF00B4D8).withOpacity(0.15)),
+                              color: const Color(0xFFC8A8E9).withOpacity(0.15)),
                         ),
                         child: Row(
                           children: [
@@ -119,14 +119,14 @@ class _BookmarksScreenState extends State<BookmarksScreen> {
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 8, vertical: 4),
                                     decoration: BoxDecoration(
-                                      color: const Color(0xFF00B4D8)
+                                      color: const Color(0xFFC8A8E9)
                                           .withOpacity(0.15),
                                       borderRadius: BorderRadius.circular(6),
                                     ),
                                     child: Text(
                                       career.category,
                                       style: GoogleFonts.poppins(
-                                        color: const Color(0xFF00B4D8),
+                                        color: const Color(0xFFC8A8E9),
                                         fontSize: 11,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -136,7 +136,7 @@ class _BookmarksScreenState extends State<BookmarksScreen> {
                                   Text(
                                     career.name,
                                     style: GoogleFonts.poppins(
-                                      color: Colors.white,
+                                      color: const Color(0xFFF5EFE6),
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
                                     ),

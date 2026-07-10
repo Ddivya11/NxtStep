@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../services/firestore_service.dart';
 import 'recommendations_screen.dart';
+import '../widgets/sage_fab.dart';
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key});
@@ -168,14 +169,15 @@ class _QuizScreenState extends State<QuizScreen> {
     final progress = (_currentQuestion + 1) / _questions.length;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF0D0B1E),
+      floatingActionButton: const SageFAB(),
+      backgroundColor: const Color(0xFF0D0B1A),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF0D0B1E),
-        iconTheme: const IconThemeData(color: Colors.white),
+        backgroundColor: const Color(0xFF0D0B1A),
+        iconTheme: const IconThemeData(color: Color(0xFFF5EFE6)),
         title: Text(
           'Career Quiz',
           style: GoogleFonts.poppins(
-              color: Colors.white, fontWeight: FontWeight.bold),
+              color: const Color(0xFFF5EFE6), fontWeight: FontWeight.bold),
         ),
       ),
       body: Padding(
@@ -194,7 +196,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 Text(
                   '${(progress * 100).toInt()}%',
                   style: GoogleFonts.poppins(
-                      color: const Color(0xFF00B4D8),
+                      color: const Color(0xFFC8A8E9),
                       fontWeight: FontWeight.bold),
                 ),
               ],
@@ -204,8 +206,8 @@ class _QuizScreenState extends State<QuizScreen> {
               borderRadius: BorderRadius.circular(8),
               child: LinearProgressIndicator(
                 value: progress,
-                backgroundColor: const Color(0xFF1A1A1A),
-                color: const Color(0xFF00B4D8),
+                backgroundColor: const Color(0xFF1A1628),
+                color: const Color(0xFFC8A8E9),
                 minHeight: 6,
               ),
             ),
@@ -213,7 +215,7 @@ class _QuizScreenState extends State<QuizScreen> {
             Text(
               question['question'],
               style: GoogleFonts.poppins(
-                color: Colors.white,
+                color: const Color(0xFFF5EFE6),
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
                 height: 1.4,
@@ -231,15 +233,15 @@ class _QuizScreenState extends State<QuizScreen> {
                     margin: const EdgeInsets.only(bottom: 16),
                     padding: const EdgeInsets.all(18),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF1A1A1A),
+                      color: const Color(0xFF1A1628),
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
-                          color: const Color(0xFF00B4D8).withOpacity(0.2)),
+                          color: const Color(0xFFC8A8E9).withValues(alpha: 0.2)),
                     ),
                     child: Text(
                       option['text'],
                       style: GoogleFonts.poppins(
-                          color: Colors.white, fontSize: 15),
+                          color: const Color(0xFFF5EFE6), fontSize: 15),
                     ),
                   ),
                 );

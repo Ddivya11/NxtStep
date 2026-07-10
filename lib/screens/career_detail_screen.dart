@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../models/career_model.dart';
 import '../services/firestore_service.dart';
+import '../widgets/gradient_background.dart';
+import '../widgets/sage_fab.dart';
 
 class CareerDetailScreen extends StatefulWidget {
   final CareerModel career;
@@ -54,8 +56,10 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
   @override
   Widget build(BuildContext context) {
     final career = widget.career;
-    return Scaffold(
-      backgroundColor: const Color(0xFF0D0D0D),
+    return  GradientBackground(
+  child: Scaffold(
+    floatingActionButton: const SageFAB(),
+    backgroundColor: Colors.transparent,
       body: CustomScrollView(
         slivers: [
           _buildAppBar(career),
@@ -70,7 +74,7 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
                   Text(
                     career.name,
                     style: GoogleFonts.poppins(
-                      color: Colors.white,
+                      color: const Color(0xFFF5EFE6),
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
                     ),
@@ -113,19 +117,20 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
           ),
         ],
       ),
-    );
+     ) );
+    
   }
 
   Widget _buildAppBar(CareerModel career) {
     return SliverAppBar(
-      backgroundColor: const Color(0xFF0D0B1E),
+      backgroundColor: const Color(0xFF0D0B1A),
       pinned: true,
-      iconTheme: const IconThemeData(color: Colors.white),
+      iconTheme: const IconThemeData(color: Color(0xFFF5EFE6)),
       actions: [
         IconButton(
           icon: Icon(
             _isBookmarked ? Icons.bookmark : Icons.bookmark_border,
-            color: const Color(0xFF00B4D8),
+            color: const Color(0xFFC8A8E9),
           ),
           onPressed: _toggleBookmark,
         ),
@@ -136,13 +141,13 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: const Color(0xFF00B4D8).withOpacity(0.15),
+        color: const Color(0xFFC8A8E9).withValues(alpha: 0.15),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Text(
         category,
         style: GoogleFonts.poppins(
-          color: const Color(0xFF00B4D8),
+          color: const Color(0xFFC8A8E9),
           fontSize: 12,
           fontWeight: FontWeight.w600,
         ),
@@ -157,7 +162,7 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
         Text(
           title,
           style: GoogleFonts.poppins(
-            color: Colors.white,
+            color: const Color(0xFFF5EFE6),
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
@@ -179,7 +184,7 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
         Text(
           'Career Progression',
           style: GoogleFonts.poppins(
-            color: Colors.white,
+            color: const Color(0xFFF5EFE6),
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
@@ -193,7 +198,7 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
         _buildProgressionCard(
             'Mid Level',
             progression['midLevel'] ?? {},
-            const Color(0xFF00B4D8)),
+            const Color(0xFFC8A8E9)),
         const SizedBox(height: 12),
         _buildProgressionCard(
             'Senior Level',
@@ -208,9 +213,9 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xFF1A1A1A),
+        color: const Color(0xFF1A1628),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: color.withOpacity(0.3)),
+        border: Border.all(color: color.withValues(alpha: 0.3)),
       ),
       child: Row(
         children: [
@@ -239,7 +244,7 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
                 Text(
                   data['role'] ?? '',
                   style: GoogleFonts.poppins(
-                    color: Colors.white,
+                    color: const Color(0xFFF5EFE6),
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
                   ),
@@ -270,7 +275,7 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
         Text(
           'Pros & Cons',
           style: GoogleFonts.poppins(
-            color: Colors.white,
+            color: const Color(0xFFF5EFE6),
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
@@ -355,7 +360,7 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
         Text(
           'Roadmap',
           style: GoogleFonts.poppins(
-            color: Colors.white,
+            color: const Color(0xFFF5EFE6),
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
@@ -363,13 +368,13 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
         const SizedBox(height: 12),
         Container(
           decoration: BoxDecoration(
-            color: const Color(0xFF1A1A1A),
+            color: const Color(0xFF1A1628),
             borderRadius: BorderRadius.circular(12),
           ),
           child: TabBar(
             controller: _tabController,
-            indicatorColor: const Color(0xFF00B4D8),
-            labelColor: const Color(0xFF00B4D8),
+            indicatorColor: const Color(0xFFC8A8E9),
+            labelColor: const Color(0xFFC8A8E9),
             unselectedLabelColor: Colors.grey,
             labelStyle: GoogleFonts.poppins(fontWeight: FontWeight.w600),
             tabs: const [
@@ -407,14 +412,14 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
                   width: 28,
                   height: 28,
                   decoration: const BoxDecoration(
-                    color: Color(0xFF00B4D8),
+                    color: Color(0xFFC8A8E9),
                     shape: BoxShape.circle,
                   ),
                   child: Center(
                     child: Text(
                       '${index + 1}',
                       style: GoogleFonts.poppins(
-                        color: Colors.white,
+                        color: const Color(0xFFF5EFE6),
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                       ),
@@ -425,7 +430,7 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
                   Container(
                     width: 2,
                     height: 40,
-                    color: const Color(0xFF00B4D8).withOpacity(0.3),
+                    color: const Color(0xFFC8A8E9).withValues(alpha: 0.3),
                   ),
               ],
             ),
@@ -454,7 +459,7 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
         Text(
           title,
           style: GoogleFonts.poppins(
-            color: Colors.white,
+            color: const Color(0xFFF5EFE6),
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
@@ -464,7 +469,7 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
               padding: const EdgeInsets.only(bottom: 8),
               child: Row(
                 children: [
-                  Icon(icon, color: const Color(0xFF00B4D8), size: 16),
+                  Icon(icon, color: const Color(0xFFC8A8E9), size: 16),
                   const SizedBox(width: 10),
                   Expanded(
                     child: Text(
@@ -487,7 +492,7 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
         Text(
           'Quick Stats',
           style: GoogleFonts.poppins(
-            color: Colors.white,
+            color: const Color(0xFFF5EFE6),
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
@@ -496,7 +501,7 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
         Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: const Color(0xFF1A1A1A),
+            color: const Color(0xFF1A1628),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Column(
@@ -531,7 +536,7 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
               value,
               textAlign: TextAlign.right,
               style: GoogleFonts.poppins(
-                color: Colors.white,
+                color: const Color(0xFFF5EFE6),
                 fontSize: 13,
                 fontWeight: FontWeight.w500,
               ),
@@ -549,7 +554,7 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
         Text(
           'Famous Indians in this Field',
           style: GoogleFonts.poppins(
-            color: Colors.white,
+            color: const Color(0xFFF5EFE6),
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
@@ -561,9 +566,9 @@ class _CareerDetailScreenState extends State<CareerDetailScreen>
                 children: [
                   const CircleAvatar(
                     radius: 16,
-                    backgroundColor: Color(0xFF1A1A1A),
+                    backgroundColor: Color(0xFF1A1628),
                     child: Icon(Icons.person,
-                        color: Color(0xFF00B4D8), size: 18),
+                        color: Color(0xFFC8A8E9), size: 18),
                   ),
                   const SizedBox(width: 12),
                   Text(

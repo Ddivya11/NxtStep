@@ -52,7 +52,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0D0B1E),
+      backgroundColor: const Color(0xFF0D0B1A),
       body: FadeTransition(
         opacity: _fadeAnimation,
         child: Center(
@@ -64,7 +64,7 @@ class _SplashScreenState extends State<SplashScreen>
                 height: 90,
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
-                    colors: [Color(0xFF9D4EDD), Color(0xFF00B4D8)],
+                    colors: [Color(0xFF9D4EDD), Color(0xFFC8A8E9)],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
@@ -72,7 +72,7 @@ class _SplashScreenState extends State<SplashScreen>
                 ),
                 child: const Icon(
                   Icons.explore_rounded,
-                  color: Colors.white,
+                  color: Color(0xFFF5EFE6),
                   size: 48,
                 ),
               ),
@@ -80,7 +80,7 @@ class _SplashScreenState extends State<SplashScreen>
               Text(
                 'NxtStep',
                 style: GoogleFonts.poppins(
-                  color: Colors.white,
+                  color: const Color(0xFFF5EFE6),
                   fontSize: 36,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.5,

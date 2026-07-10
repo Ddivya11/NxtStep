@@ -6,7 +6,6 @@ import 'firebase_options.dart';
 import 'screens/login_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/entry_point_screen.dart';
-import 'screens/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,16 +24,16 @@ class MyApp extends StatelessWidget {
       title: 'NxtStep',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Colors.transparent,
+        scaffoldBackgroundColor:  const Color(0xFF080B1A),
       ),
       home: StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Scaffold(
-              backgroundColor: Color(0xFF0D0B1E),
+              backgroundColor: Color(0xFF080B1A),
               body: Center(
-                child: CircularProgressIndicator(color: Color(0xFF00B4D8)),
+                child: CircularProgressIndicator(color: Color(0xFFC8A8E9)),
               ),
             );
           }
@@ -80,7 +79,7 @@ class _LoadingScreen extends StatelessWidget {
     return const Scaffold(
       backgroundColor: Colors.transparent,
       body: Center(
-        child: CircularProgressIndicator(color: Color(0xFF00B4D8)),
+        child: CircularProgressIndicator(color: Color(0xFFC8A8E9)),
       ),
     );
   }

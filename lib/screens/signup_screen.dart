@@ -48,7 +48,7 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0D0B1E),
+      backgroundColor: const Color(0xFF0D0B1A),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24),
@@ -59,7 +59,7 @@ class _SignupScreenState extends State<SignupScreen> {
               const Text(
                 'Create Account',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: const Color(0xFFF5EFE6),
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                 ),
@@ -87,17 +87,17 @@ class _SignupScreenState extends State<SignupScreen> {
                 child: ElevatedButton(
                   onPressed: _isLoading ? null : _signup,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF00B4D8),
+                    backgroundColor: const Color(0xFFC8A8E9),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
                   child: _isLoading
-                      ? const CircularProgressIndicator(color: Colors.white)
+                      ? const CircularProgressIndicator(color: const Color(0xFFF5EFE6))
                       : const Text(
                           'Sign Up',
                           style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+                              fontSize: 16, fontWeight: FontWeight.bold, color: const Color(0xFFF5EFE6)),
                         ),
                 ),
               ),
@@ -113,7 +113,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       MaterialPageRoute(builder: (_) => const LoginScreen()),
                     ),
                     child: const Text('Log In',
-                        style: TextStyle(color: Color(0xFF00B4D8))),
+                        style: TextStyle(color: Color(0xFFC8A8E9))),
                   ),
                 ],
               ),
@@ -130,13 +130,13 @@ class _SignupScreenState extends State<SignupScreen> {
     return TextField(
       controller: controller,
       obscureText: obscure,
-      style: const TextStyle(color: Colors.white),
+      style: const TextStyle(color: const Color(0xFFF5EFE6)),
       decoration: InputDecoration(
         hintText: hint,
         hintStyle: const TextStyle(color: Colors.grey),
         prefixIcon: Icon(icon, color: Colors.grey),
         filled: true,
-        fillColor: const Color(0xFF1A1A1A),
+        fillColor: const Color(0xFF1A1628),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide.none,

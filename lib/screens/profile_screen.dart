@@ -5,6 +5,7 @@ import '../services/auth_service.dart';
 import '../services/firestore_service.dart';
 import 'login_screen.dart';
 import 'quiz_screen.dart';
+import '../widgets/sage_fab.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -38,21 +39,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0D0B1E),
+      floatingActionButton: const SageFAB(),
+      backgroundColor: const Color(0xFF0D0B1A),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF0D0B1E),
+        backgroundColor: const Color(0xFF0D0B1A),
         title: Text(
           'Profile',
           style: GoogleFonts.poppins(
-            color: Colors.white,
+            color: const Color(0xFFF5EFE6),
             fontWeight: FontWeight.bold,
           ),
         ),
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Color(0xFFF5EFE6)),
       ),
       body: _isLoading
           ? const Center(
-              child: CircularProgressIndicator(color: Color(0xFF00B4D8)))
+              child: CircularProgressIndicator(color: Color(0xFFC8A8E9)))
           : Padding(
               padding: const EdgeInsets.all(24),
               child: Column(
@@ -60,15 +62,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   const SizedBox(height: 20),
                   const CircleAvatar(
                     radius: 48,
-                    backgroundColor: Color(0xFF1A1A1A),
+                    backgroundColor: Color(0xFF1A1628),
                     child: Icon(Icons.person,
-                        color: Color(0xFF00B4D8), size: 48),
+                        color: Color(0xFFC8A8E9), size: 48),
                   ),
                   const SizedBox(height: 16),
                   Text(
                     _userData?['name'] ?? 'User',
                     style: GoogleFonts.poppins(
-                      color: Colors.white,
+                      color: const Color(0xFFF5EFE6),
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
                     ),
@@ -123,22 +125,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
     required VoidCallback onTap,
     bool isDestructive = false,
   }) {
-    final color = isDestructive ? Colors.redAccent : const Color(0xFF00B4D8);
+    final color = isDestructive ? Colors.redAccent : const Color(0xFFC8A8E9);
     return GestureDetector(
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: const Color(0xFF1A1A1A),
+          color: const Color(0xFF1A1628),
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: color.withOpacity(0.2)),
+          border: Border.all(color: color.withValues(alpha: 0.2)),
         ),
         child: Row(
           children: [
             Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: color.withOpacity(0.1),
+                color: color.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Icon(icon, color: color, size: 22),
@@ -151,7 +153,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Text(
                     title,
                     style: GoogleFonts.poppins(
-                      color: Colors.white,
+                      color: const Color(0xFFF5EFE6),
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
                     ),

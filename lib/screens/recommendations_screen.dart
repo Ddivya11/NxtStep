@@ -4,6 +4,7 @@ import '../services/firestore_service.dart';
 import '../models/career_model.dart';
 import 'career_detail_screen.dart';
 import 'home_screen.dart';
+import '../widgets/sage_fab.dart';
 
 class RecommendationsScreen extends StatefulWidget {
   final List<String> careerIds;
@@ -39,19 +40,20 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0D0B1E),
+      floatingActionButton: const SageFAB(),
+      backgroundColor: const Color(0xFF0D0B1A),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF0D0B1E),
+        backgroundColor: const Color(0xFF0D0B1A),
         automaticallyImplyLeading: false,
         title: Text(
           'Your Matches',
           style: GoogleFonts.poppins(
-              color: Colors.white, fontWeight: FontWeight.bold),
+              color: const Color(0xFFF5EFE6), fontWeight: FontWeight.bold),
         ),
       ),
       body: _isLoading
           ? const Center(
-              child: CircularProgressIndicator(color: Color(0xFF00B4D8)))
+              child: CircularProgressIndicator(color: Color(0xFFC8A8E9)))
           : Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
@@ -60,7 +62,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                   Text(
                     'Based on your answers,\nhere are your top careers 🎯',
                     style: GoogleFonts.poppins(
-                      color: Colors.white,
+                      color: const Color(0xFFF5EFE6),
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       height: 1.4,
@@ -86,11 +88,11 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                             margin: const EdgeInsets.only(bottom: 16),
                             padding: const EdgeInsets.all(20),
                             decoration: BoxDecoration(
-                              color: const Color(0xFF1A1A1A),
+                              color: const Color(0xFF1A1628),
                               borderRadius: BorderRadius.circular(16),
                               border: Border.all(
-                                  color: const Color(0xFF00B4D8)
-                                      .withOpacity(0.15)),
+                                  color: const Color(0xFFC8A8E9)
+                                      .withValues(alpha: 0.15)),
                             ),
                             child: Row(
                               children: [
@@ -98,15 +100,15 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                                   width: 48,
                                   height: 48,
                                   decoration: BoxDecoration(
-                                    color: const Color(0xFF00B4D8)
-                                        .withOpacity(0.1),
+                                    color: const Color(0xFFC8A8E9)
+                                        .withValues(alpha: 0.1),
                                     borderRadius: BorderRadius.circular(12),
                                   ),
                                   child: Center(
                                     child: Text(
                                       '${index + 1}',
                                       style: GoogleFonts.poppins(
-                                        color: const Color(0xFF00B4D8),
+                                        color: const Color(0xFFC8A8E9),
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -122,7 +124,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                                       Text(
                                         career.name,
                                         style: GoogleFonts.poppins(
-                                          color: Colors.white,
+                                          color: const Color(0xFFF5EFE6),
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -131,7 +133,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                                       Text(
                                         career.category,
                                         style: GoogleFonts.poppins(
-                                            color: const Color(0xFF00B4D8),
+                                            color: const Color(0xFFC8A8E9),
                                             fontSize: 12),
                                       ),
                                       const SizedBox(height: 4),
@@ -168,7 +170,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF00B4D8),
+                        backgroundColor: const Color(0xFFC8A8E9),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
@@ -176,7 +178,7 @@ class _RecommendationsScreenState extends State<RecommendationsScreen> {
                       child: Text(
                         'Explore All Careers',
                         style: GoogleFonts.poppins(
-                            color: Colors.white,
+                            color: const Color(0xFFF5EFE6),
                             fontWeight: FontWeight.bold,
                             fontSize: 16),
                       ),
