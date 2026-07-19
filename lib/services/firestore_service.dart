@@ -7,13 +7,17 @@ class FirestoreService {
   // Fetch all careers
   Future<List<CareerModel>> getCareers() async {
     try {
-      QuerySnapshot snapshot =
-          await _firestore.collection('careers').get();
+      QuerySnapshot snapshot = await _firestore.collection('careers').get();
       return snapshot.docs
-          .map((doc) => CareerModel.fromFirestore(
-              doc.data() as Map<String, dynamic>, doc.id))
+          .map(
+            (doc) => CareerModel.fromFirestore(
+              doc.data() as Map<String, dynamic>,
+              doc.id,
+            ),
+          )
           .toList();
     } catch (e) {
+      print("Error fetching careers: $e");
       return [];
     }
   }
@@ -21,14 +25,19 @@ class FirestoreService {
   // Fetch single career by ID
   Future<CareerModel?> getCareerById(String id) async {
     try {
-      DocumentSnapshot doc =
-          await _firestore.collection('careers').doc(id).get();
+      DocumentSnapshot doc = await _firestore
+          .collection('careers')
+          .doc(id)
+          .get();
       if (doc.exists) {
         return CareerModel.fromFirestore(
-            doc.data() as Map<String, dynamic>, doc.id);
+          doc.data() as Map<String, dynamic>,
+          doc.id,
+        );
       }
       return null;
     } catch (e) {
+      print("Error fetching career by ID: $e");
       return null;
     }
   }
@@ -36,8 +45,10 @@ class FirestoreService {
   // Get user data
   Future<Map<String, dynamic>?> getUserData(String uid) async {
     try {
-      DocumentSnapshot doc =
-          await _firestore.collection('users').doc(uid).get();
+      DocumentSnapshot doc = await _firestore
+          .collection('users')
+          .doc(uid)
+          .get();
       return doc.data() as Map<String, dynamic>?;
     } catch (e) {
       return null;
@@ -45,7 +56,11 @@ class FirestoreService {
   }
 
   // Toggle bookmark
-  Future<void> toggleBookmark(String uid, String careerId, bool isBookmarked) async {
+  Future<void> toggleBookmark(
+    String uid,
+    String careerId,
+    bool isBookmarked,
+  ) async {
     try {
       await _firestore.collection('users').doc(uid).update({
         'bookmarks': isBookmarked

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../services/auth_service.dart';
 import '../services/firestore_service.dart';
@@ -10,6 +11,7 @@ import 'profile_screen.dart';
 import '../widgets/gradient_background.dart';
 import 'sage_chat_screen.dart';
 import '../widgets/sage_fab.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -123,7 +125,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return GradientBackground(
       child: Scaffold(
-      
         backgroundColor: Colors.transparent,
         body: SafeArea(
           child: Column(
@@ -188,10 +189,27 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-          const CircleAvatar(
-            backgroundColor: Color(0xFF1A1628),
-            child: Icon(Icons.person, color: Color(0xFFC8A8E9)),
-          ),
+          if (kIsWeb)
+            ElevatedButton.icon(
+              onPressed: () async {
+                final Uri apkUrl = Uri.parse(
+                  'https://drive.google.com/uc?export=download&id=1Kuc0OcIVF11jDLJdlJFCQGocJkRJce9f',
+                );
+
+                if (await canLaunchUrl(apkUrl)) {
+                  await launchUrl(apkUrl, mode: LaunchMode.externalApplication);
+                }
+              },
+              icon: const Icon(Icons.download_rounded),
+              label: const Text('Download App'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFFC8A8E9),
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ),
         ],
       ),
     );
