@@ -28127,7 +28127,7 @@ a76(a,b){var s=0,r=A.F(t.N),q,p,o,n,m
 var $async$a76=A.A(function(c,d){if(c===1)return A.C(d,r)
 for(;;)switch(s){case 0:p=A.h8("https://openrouter.ai/api/v1/chat/completions",0,null)
 o=t.N
-n=A.W(["Authorization","Bearer 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","Content-Type","application/json","HTTP-Referer","https://nxtstep.app","X-Title","NxtStep"],o,o)
+n=A.W(["Authorization","Bearer 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","Content-Type","application/json","HTTP-Referer","https://nxtstep.app","X-Title","NxtStep"],o,o)
 s=3
 return A.z(A.aZ1(p,B.cI.We(A.W(["model","openrouter/free","messages",A.c([A.W(["role","system","content","You are Sage, the AI Career Counselor inside the NxtStep app.\n\nYour job is to guide students with career choices.\n\nRules:\n- Be friendly and encouraging.\n- Keep answers under 180 words.\n- Use short paragraphs or bullet points.\n- Suggest practical next steps whenever possible.\n- If asked about salaries or trends, clearly mention they can vary by location and experience.\n- Never overwhelm the student with huge walls of text.\n\nCareer Information:\n"+a+"\n\nStudent Question:\n"+b+"\n"],o,o),A.W(["role","user","content",b],o,o)],t.m0)],o,t.K),null),n),$async$a76)
 case 3:m=d
