@@ -59,7 +59,7 @@ class _SignupScreenState extends State<SignupScreen> {
               const Text(
                 'Create Account',
                 style: TextStyle(
-                  color: const Color(0xFFF5EFE6),
+                  color: Color(0xFFF5EFE6),
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                 ),
@@ -93,11 +93,11 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ),
                   child: _isLoading
-                      ? const CircularProgressIndicator(color: const Color(0xFFF5EFE6))
+                      ? const CircularProgressIndicator(color: Color(0xFFF5EFE6))
                       : const Text(
                           'Sign Up',
                           style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold, color: const Color(0xFFF5EFE6)),
+                              fontSize: 16, fontWeight: FontWeight.bold, color: Color(0xFFF5EFE6)),
                         ),
                 ),
               ),
@@ -130,7 +130,7 @@ class _SignupScreenState extends State<SignupScreen> {
     return TextField(
       controller: controller,
       obscureText: obscure,
-      style: const TextStyle(color: const Color(0xFFF5EFE6)),
+      style: const TextStyle(color: Color(0xFFF5EFE6)),
       decoration: InputDecoration(
         hintText: hint,
         hintStyle: const TextStyle(color: Colors.grey),

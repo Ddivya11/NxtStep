@@ -1,2 +1,2 @@
 const String openRouterApiKey =
-    "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";
+    "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";

@@ -57,7 +57,7 @@ class _BookmarksScreenState extends State<BookmarksScreen> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        iconTheme: const IconThemeData(color: const Color(0xFFF5EFE6)),
+        iconTheme: const IconThemeData(color: Color(0xFFF5EFE6)),
       ),
       body: _isLoading
           ? const Center(
@@ -107,7 +107,7 @@ class _BookmarksScreenState extends State<BookmarksScreen> {
                           color: const Color(0xFF1A1628),
                           borderRadius: BorderRadius.circular(16),
                           border: Border.all(
-                              color: const Color(0xFFC8A8E9).withOpacity(0.15)),
+                              color: const Color(0xFFC8A8E9).withValues(alpha: 0.15)),
                         ),
                         child: Row(
                           children: [
@@ -120,7 +120,7 @@ class _BookmarksScreenState extends State<BookmarksScreen> {
                                         horizontal: 8, vertical: 4),
                                     decoration: BoxDecoration(
                                       color: const Color(0xFFC8A8E9)
-                                          .withOpacity(0.15),
+                                          .withValues(alpha: 0.15),
                                       borderRadius: BorderRadius.circular(6),
                                     ),
                                     child: Text(

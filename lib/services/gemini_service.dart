@@ -16,11 +16,12 @@ class GeminiService {
         "X-Title": "NxtStep",
       },
       body: jsonEncode({
-        "model": "meta-llama/llama-3.1-8b-instruct",
+        "model": "meta-llama/llama-3.1-8b-instruct:free",
         "messages": [
           {
             "role": "system",
-           "content": """
+            "content":
+                """
 You are Sage, the AI Career Counselor inside the NxtStep app.
 
 Your job is to guide students with career choices.

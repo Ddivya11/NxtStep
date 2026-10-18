@@ -15,7 +15,7 @@ class FirestoreService {
               doc.id,
             ),
           )
-          .toList();
+          .toList(); 
     } catch (e) {
       print("Error fetching careers: $e");
       return [];
