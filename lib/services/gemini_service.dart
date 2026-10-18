@@ -16,7 +16,7 @@ class GeminiService {
         "X-Title": "NxtStep",
       },
       body: jsonEncode({
-        "model": "meta-llama/llama-3.1-8b-instruct:free",
+        "model": "openrouter/free",
         "messages": [
           {
             "role": "system",
