@@ -7,21 +7,20 @@ class GeminiService {
     required String careerData,
     required String userQuestion,
   }) async {
+    final url = Uri.parse(
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=$geminiApiKey',
+    );
+
     final response = await http.post(
-      Uri.parse("https://openrouter.ai/api/v1/chat/completions"),
-      headers: {
-        "Authorization": "Bearer $openRouterApiKey",
-        "Content-Type": "application/json",
-        "HTTP-Referer": "https://nxtstep.app",
-        "X-Title": "NxtStep",
-      },
+      url,
+      headers: {'Content-Type': 'application/json'},
       body: jsonEncode({
-        "model": "openrouter/free",
-        "messages": [
+        "contents": [
           {
-            "role": "system",
-            "content":
-                """
+            "parts": [
+              {
+                "text":
+                    """
 You are Sage, the AI Career Counselor inside the NxtStep app.
 
 Your job is to guide students with career choices.
@@ -31,8 +30,6 @@ Rules:
 - Keep answers under 180 words.
 - Use short paragraphs or bullet points.
 - Suggest practical next steps whenever possible.
-- If asked about salaries or trends, clearly mention they can vary by location and experience.
-- Never overwhelm the student with huge walls of text.
 
 Career Information:
 $careerData
@@ -40,18 +37,19 @@ $careerData
 Student Question:
 $userQuestion
 """,
+              },
+            ],
           },
-          {"role": "user", "content": userQuestion},
         ],
       }),
     );
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
-      return data["choices"][0]["message"]["content"];
+      return data["candidates"][0]["content"]["parts"][0]["text"];
     } else {
-      print(response.body);
-      return "Error ${response.statusCode}\n${response.body}";
+      print("Gemini API Error: ${response.statusCode} - ${response.body}");
+      return "Error ${response.statusCode}: ${response.body}";
     }
   }
 }
